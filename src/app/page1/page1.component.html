@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="pt-2">
+    <h1 id="title">{{ page1.title }}</h1>
+  </div>
+
+  <!-- Button to Open the Modal -->
+  <button id="button-show-modal" type="button" class="btn btn-primary" (click)="showModal()">
+    {{modal.showButton.title}}
+  </button>
+
+  <ng-container *ngIf="modal.isVisible">
+    <!-- The Modal -->
+    <div class="modal show" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 id="modal-title" class="modal-title">{{modal.title}}</h4>
+            <button
+              id="button-x-hide-modal"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              (click)="hideModal()"
+            >
+              &times;
+            </button>
+          </div>
+
+          <!-- Modal body -->
+          <div id="modal-body" class="modal-body">
+            {{modal.body}}
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button
+              id="button-hide-modal"
+              type="button"
+              class="btn btn-danger"
+              data-dismiss="modal"
+              (click)="hideModal()"
+            >
+              {{modal.hideButton.title}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
