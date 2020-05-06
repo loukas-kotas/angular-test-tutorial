@@ -4,7 +4,7 @@ import { Page1Component } from './page1.component';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-fdescribe('Page1Component', () => {
+describe('Page1Component', () => {
   let component: Page1Component;
   let fixture: ComponentFixture<Page1Component>;
   let debugElement: DebugElement;

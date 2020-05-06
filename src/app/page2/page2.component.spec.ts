@@ -17,7 +17,7 @@ const Page2ServiceFake = {
   }
 };
 
-fdescribe('Page2Component', () => {
+describe('Page2Component', () => {
   let component: Page2Component;
   let fixture: ComponentFixture<Page2Component>;
   let debugElement: DebugElement;
@@ -49,10 +49,14 @@ fdescribe('Page2Component', () => {
     expect(h1.nativeElement.textContent).toEqual(component.page2.title);
   });
 
-  fdescribe('Async Testing', () => {
+  describe('Async Testing', () => {
     // TODO: complete test
     // HINT: check page2.service.spec.ts
     it('should get registered users on button-get-registered-users-async click', fakeAsync(() => {
+
+      const tbt = debugElement.query(By.css('#button-get-registered-users-async'));
+
+      tbt.triggerEventHandler('click', undefined);
 
       tick();
 
@@ -63,6 +67,10 @@ fdescribe('Page2Component', () => {
     // HINT: check page2.service.spec.ts
     it('should set listingAsync.isVisible to true on button-get-registered-users-async click', fakeAsync(() => {
 
+      const tbt = debugElement.query(By.css('#button-get-registered-users-async'));
+
+      tbt.triggerEventHandler('click', undefined);
+
       tick();
 
       expect(component.listingAsync.isVisible).toEqual(true);
@@ -72,7 +80,10 @@ fdescribe('Page2Component', () => {
     // TODO: complete test
     it('should call getRegisteredUsersAsync() on button-get-registered-users-async click', () => {
 
-      const spy = 'create a spy on getRegisteredUsersAsync()';
+      const spy = spyOn(component, 'getRegisteredUsersAsync');
+
+      const tbt = debugElement.query(By.css('#button-get-registered-users-async'));
+      tbt.triggerEventHandler('click', undefined);
 
       expect(spy).toHaveBeenCalled();
     });
@@ -138,38 +149,67 @@ fdescribe('Page2Component', () => {
     // TODO: complete test
     it('should call hideListAsync() on button-hide-registered-users-async button', () => {
 
-      const spy = 'create a spy on hideListAsync()';
+      const spy = spyOn(component, 'hideListAsync');
+
+      const tbt = debugElement.query(By.css('#button-hide-registered-users-async'));
+
+      tbt.triggerEventHandler('click', undefined);
 
       expect(spy).toHaveBeenCalled();
     });
   });
 
-  fdescribe('Sync Testing', () => {
+  describe('Sync Testing', () => {
 
     // TODO: complete test
     it('should get registered users on button-get-registered-users-sync click', () => {
+
+      const tbt = debugElement.query(By.css('#button-get-registered-users-sync'));
+
+      tbt.triggerEventHandler('click', undefined);
+
       expect(component.listingSync.registeredUsers).toEqual(registeredUsers.data);
     });
 
     // TODO: complete test
     it('should set listingSync.isVisible to true on button-get-registered-users-sync click', () => {
+
+      const tbt = debugElement.query(By.css('#button-get-registered-users-sync'));
+
+      tbt.triggerEventHandler('click', undefined);
+
       expect(component.listingSync.isVisible).toEqual(true);
     });
 
     // TODO: complete test
     it('should call getRegisteredUsersSync() on button-get-registered-users-sync click', () => {
-      const spy = 'create a spy on getRegisteredUsersSync()';
+
+      const spy = spyOn(component, 'getRegisteredUsersSync');
+
+      const tbt = debugElement.query(By.css('#button-get-registered-users-sync'));
+      tbt.triggerEventHandler('click', undefined);
+
       expect(spy).toHaveBeenCalled();
     });
 
     // TODO: complete test
-    it('should set listingSync.isVisible to false on button-get-registered-users-sync click', () => {
+    it('should set listingSync.isVisible to false on button-hide-registered-users-sync click', () => {
+
+      const tbt = debugElement.query(By.css('#button-hide-registered-users-sync'));
+
+      tbt.triggerEventHandler('click', undefined);
+
       expect(component.listingSync.isVisible).toEqual(false);
     });
 
     // TODO: complete test
     it('should call hideListSync() on button-hide-registered-users-sync click', () => {
-      const spy = 'create a spy on hideListSync()';
+      const spy = spyOn(component, 'hideListSync');
+
+      const tbt = debugElement.query(By.css('#button-hide-registered-users-sync'));
+
+      tbt.triggerEventHandler('click', undefined);
+
       expect(spy).toHaveBeenCalled();
     });
 

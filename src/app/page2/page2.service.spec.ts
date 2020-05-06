@@ -3,7 +3,7 @@ import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { Page2Service } from './page2.service';
 import * as registeredUsers from 'src/shared/data/registered-users';
 
-fdescribe('Page2Service', () => {
+describe('Page2Service', () => {
   let service: Page2Service;
 
   beforeEach(() => TestBed.configureTestingModule({
