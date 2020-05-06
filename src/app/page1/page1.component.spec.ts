@@ -4,7 +4,7 @@ import { Page1Component } from './page1.component';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-describe('Page1Component', () => {
+fdescribe('Page1Component', () => {
   let component: Page1Component;
   let fixture: ComponentFixture<Page1Component>;
   let debugElement: DebugElement;
@@ -32,7 +32,7 @@ describe('Page1Component', () => {
     expect(h1.nativeElement.textContent).toEqual(component.page1.title);
   });
 
-  it('shoud display modal on modal set visible true from component', () => {
+  it('should display modal on modal set visible true from component', () => {
     component.modal.isVisible = true;
     expect(component.modal.isVisible).toEqual(true);
   });
@@ -59,10 +59,10 @@ describe('Page1Component', () => {
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
-  it(`should hide modal on button-hide-modal Modal Button`, () => {
+  it(`should hide modal on button-hide-modal click`, () => {
     component.modal.isVisible = true; // modal should be already visible
 
-    // fixture.detectChanges(); // inform component's state to update
+    fixture.detectChanges(); // inform component's state to update
 
     const tbt = debugElement.query(By.css('#button-hide-modal'));
     tbt.triggerEventHandler('click', undefined);
@@ -70,20 +70,37 @@ describe('Page1Component', () => {
   });
 
   // TODO: complete test
-  it(`should hide modal on button-x-hide-modal Modal Button`, () => {
+  it(`should hide modal on button-x-hide-modal click`, () => {
+    component.modal.isVisible = true;
+
+    fixture.detectChanges();
+
+    const tbt = debugElement.query(By.css('#button-x-hide-modal'));
+    tbt.triggerEventHandler('click', undefined);
+
     expect(component.modal.isVisible).toEqual(false);
   });
 
   // TODO: complete test
   it(`should display modal title when modal visible`, () => {
-    const tbt = undefined;
-    expect(tbt).toEqual(component.modal.title);
+    component.modal.isVisible = true;
+
+    fixture.detectChanges();
+
+    const tbt = debugElement.query(By.css('#modal-title'));
+
+    expect(tbt.nativeElement.textContent).toEqual(component.modal.title);
   });
 
   // TODO: complete test
   it(`should display modal body when modal visible`, () => {
-    const tbt = undefined;
-    expect(tbt).toEqual(component.modal.body);
+    component.modal.isVisible = true;
+
+    fixture.detectChanges();
+
+    const tbt = debugElement.query(By.css('#modal-body'));
+
+    expect(tbt.nativeElement.textContent.trim()).toEqual(component.modal.body);
   });
 
 

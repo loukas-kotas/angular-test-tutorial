@@ -13,7 +13,7 @@ export class Page1Component implements OnInit {
   };
 
   modal = {
-    title: 'Modal Heading',
+    title: 'Modal Heading 2',
     body: 'Modal body..',
     isVisible: false,
     showButton: {
@@ -35,6 +35,15 @@ export class Page1Component implements OnInit {
 
   hideModal() {
     this.modal.isVisible = false;
+    this.sendRequest();
+    this.changeUserState();
+  }
+
+  sendRequest() {
+  }
+
+  changeUserState() {
+
   }
 
 }
