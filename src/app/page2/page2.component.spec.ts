@@ -126,12 +126,12 @@ describe('Page2Component', () => {
     it('should call showErrorMessage() function on getRegisteredUsersAsync() error', fakeAsync(() => {
       const service = TestBed.get(Page2Service);
 
-      const spygetRegisteredUsersAsync = spyOn(service, 'getRegisteredUsers');
+      const spygetRegisteredUsersAsync = spyOn(service, 'getRegisteredUsers').and.callThrough();
 
       spygetRegisteredUsersAsync.and.returnValue(throwError({ status: 401 }));
 
 
-      const spyShowErrorMessage = spyOn(component, 'showErrorMessage');
+      const spyShowErrorMessage = spyOn(component, 'showErrorMessage').and.callThrough();
 
 
       component.getRegisteredUsersAsync();
@@ -149,7 +149,7 @@ describe('Page2Component', () => {
     // TODO: complete test
     it('should call hideListAsync() on button-hide-registered-users-async button', () => {
 
-      const spy = spyOn(component, 'hideListAsync');
+      const spy = spyOn(component, 'hideListAsync').and.callThrough();
 
       const tbt = debugElement.query(By.css('#button-hide-registered-users-async'));
 
